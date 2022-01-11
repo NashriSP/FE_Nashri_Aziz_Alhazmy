@@ -54,7 +54,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessHandler(logoutSuccessHandler())
-                .permitAll();
+                .permitAll()
+                .and()
+                .headers()
+                .xssProtection()
+                .and()
+                .contentSecurityPolicy("script-src 'self'");
     }
     @Bean
     public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){

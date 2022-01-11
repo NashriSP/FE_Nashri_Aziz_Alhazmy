@@ -30,4 +30,15 @@ public class MainController extends BasicController {
         return mView;
     }
 
+    @RequestMapping("/form")
+    public ModelAndView form(ModelAndView mView,
+                             @ModelAttribute(name = "result_code") String result_code,
+                             @ModelAttribute(name = "result_message") String result_message,
+                             RedirectAttributes redirectAttributes){
+        System.out.println(passwordEncoder.encode("iuli123456"));
+        mView.setViewName("pages/FE_Nashri/form");
+        return mView;
+    }
+
+
 }
