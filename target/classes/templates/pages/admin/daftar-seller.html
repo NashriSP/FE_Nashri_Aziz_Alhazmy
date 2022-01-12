@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html
+        lang="en"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+        layout:decorate="~{layout/master}"
+>
+<title>Admin - Daftar Grup</title>
+
+<th:block layout:fragment="page_css">
+    <link th:href="@{/lib/highlightjs/styles/github.css}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"> -->
+    <style>
+        #preview{
+            width:500px;
+            height: 500px;
+            margin:0px auto;
+        }
+    </style>
+</th:block>
+
+<th:block layout:fragment="content">
+    <div class="br-pagetitle">
+        <!-- <i class="icon ion-ios-gear-outline"></i> -->
+        <div>
+            <h4>Daftar Seller</h4>
+        </div>
+    </div><!-- d-flex -->
+    <div class="br-pagebody">
+        <div class="br-section-wrapper">
+            <button class="btn btn-primary mb-3 px-4" onclick="location.replace('/polua/admin/daftar-seller/create')"><i class="fas fa-plus"></i> Add</button>
+            <div class="table-wrapper">
+                <table id="datatable1" class="table display responsive nowrap">
+                  <thead>
+                    <tr>
+                      <th class="wd-15p">Name</th>
+                      <th class="wd-15p">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Tiger</td>
+                      <td>Tiger3@gmail.com</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div><!-- table-wrapper -->
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="page_js">
+    <script th:src="@{/lib/highlightjs/highlight.pack.min.js}"></script>
+    <script th:src="@{/lib/datatables.net/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/lib/datatables.net-dt/js/dataTables.dataTables.min.js}"></script>
+    <script th:src="@{/lib/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+    <script th:src="@{/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js}"></script>
+    <script th:src="@{/lib/select2/js/select2.min.js}"></script>
+    <!--    <script th:src="@{/js/chart.chartjs.js}"></script>-->
+    <!--    <script th:src="@{/js/myChart/home.chart.js}"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script th:src="@{/js/chartjs-plugin-colorschemes.min.js}"></script>
+    <script th:src="@{/js/bracket.js}"></script>
+
+    <script>
+      $(function(){
+        'use strict';
+
+        $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+      });
+    </script>
+</th:block>
+</html>
